@@ -1,5 +1,16 @@
 from tkinter import *
+import backend
 
+def view_command():
+    list1.delete(0, END)
+    for row in backend.view():
+        # Here insert method has argmnts, END, row means all the new rows will be inserted at the end of the view list
+        list1.insert(END, row)
+
+def search_command():
+    list1.delete(0,END)
+    for row in backend.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
+        list1.insert(END, row) 
 window = Tk()
 
 l1= Label(window, text='Title')
@@ -40,11 +51,11 @@ sb1.grid(row= 2, column= 2, rowspan= 6)
 #connecting the List to scroll
 list1.configure(yscrollcommand= sb1.set)
 sb1.configure(command= list1.yview)
-
-b1= Button(window, text= 'View All', width= 12)
+# Here view_command is a wrapper function here in command we are not allow to put brackets so to call a func with param we need another func
+b1= Button(window, text= 'View All', width= 12, command= view_command)
 b1.grid(row=2, column= 3)
 
-b2= Button(window, text= 'Search Entry', width= 12)
+b2= Button(window, text= 'Search Entry', width= 12, command= search_command)
 b2.grid(row= 3, column= 3)
 
 b3= Button(window, text= 'Add Entry', width= 12)
