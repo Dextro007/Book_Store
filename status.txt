@@ -1,1 +1,2 @@
-I ahave completed the backend and working on connecting the frontend and backend.
+I have completed the backend and working on connecting the frontend and backend.
+Completed connecting the frontend and backend
