@@ -1,3 +1,5 @@
+# This a simple project to demostarate a booskstore using a a simple database
+
 from tkinter import *
 import backend
 
